@@ -5,22 +5,25 @@ import { ReactNode } from 'react';
 export interface ITextProps {
     size?: 'sm' | 'md' | 'lg',
     children: ReactNode,
-    asChild: boolean,
+    asChild?: boolean,
+    className?: string,
 }
 
-export function Text( { size = 'md', children, asChild}: ITextProps) {
+export function Text( { size = 'md', children, asChild, className}: ITextProps) {
 
     const Comp = asChild ? Slot : 'span'
 
     return (
         <>
             <Comp className={clsx(
+               
                 'text-gray-100 font-sans',
                 {
                     'text-sm': size === 'sm',
                     'text-md': size === 'md',
                     'text-lg': size === 'lg',
-                }
+                },
+                className 
                 )} >
             { children }    
             </Comp>
