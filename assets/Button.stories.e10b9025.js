@@ -1,0 +1,2 @@
+import{B as t}from"./Button.0949fdfe.js";import"./index.module.8274bfe8.js";import"./index.c84f2873.js";import"./iframe.f170516f.js";import"./jsx-runtime.dacde09c.js";const a={title:"components/Button",component:t,args:{children:"Creating a new knowledge"},argTypes:{}},p={},i=["Default"];export{p as Default,i as __namedExportsOrder,a as default};
+//# sourceMappingURL=Button.stories.e10b9025.js.map
