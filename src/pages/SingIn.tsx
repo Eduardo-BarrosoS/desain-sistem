@@ -1,13 +1,13 @@
 
+import { Checkbox } from '@radix-ui/react-checkbox';
 import { Envelope, Lock } from 'phosphor-react';
-import { FormEvent, useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { Logo } from '../assets/Logo';
 import { Button } from '../components/Button';
-import { Checkbox } from '../components/Checkbox';
 import { Heading } from '../components/Heading';
 import { Text } from '../components/Text';
 import { TextInput } from '../components/TextInput';
-import './styles/global.css';
+
 
 export function SingIn() {
 
@@ -15,6 +15,7 @@ export function SingIn() {
 
     function handleSingIn(event: FormEvent) {
         event.preventDefault()
+        setIsSingedIn(true)
     }
 
   return (
@@ -32,14 +33,13 @@ export function SingIn() {
         Faça login e comece a usar
       </Text>
       </header>
-      <form action="" onSubmit={() => {
-        handleSingIn()
-      }} className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
+      <form action="" onSubmit={handleSingIn} className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
+        { isSingedIn && <Text> Login realizado </Text>}
         <label htmlFor="email" className='flex flex-col gap-2'>
           <Text className='font-semibold'>Endereço se email</Text>
           <TextInput.Root>
             <TextInput.Icon>
-              <Envelope />s
+              <Envelope />
             </TextInput.Icon>
             <TextInput.Input type='text' id='email' placeholder='exemplo@gmail.com' />
           </TextInput.Root>
