@@ -1,5 +1,6 @@
 
 import { Checkbox } from '@radix-ui/react-checkbox';
+import axios from 'axios';
 import { Envelope, Lock } from 'phosphor-react';
 import { useState, FormEvent } from 'react';
 import { Logo } from '../assets/Logo';
@@ -13,8 +14,14 @@ export function SingIn() {
 
     const [isSingedIn, setIsSingedIn] = useState(false)
 
-    function handleSingIn(event: FormEvent) {
+    async function handleSingIn(event: FormEvent) {
         event.preventDefault()
+
+        await axios.post("/section", {
+          email:  "edu@gmial.com",
+          senha: "123456"
+        })
+
         setIsSingedIn(true)
     }
 
@@ -34,7 +41,7 @@ export function SingIn() {
       </Text>
       </header>
       <form action="" onSubmit={handleSingIn} className='flex flex-col gap-4 items-stretch w-full max-w-sm mt-10'>
-        { isSingedIn && <Text> Login realizado </Text>}
+        { isSingedIn && <Text> Login realizado! </Text>}
         <label htmlFor="email" className='flex flex-col gap-2'>
           <Text className='font-semibold'>Endereço se email</Text>
           <TextInput.Root>
